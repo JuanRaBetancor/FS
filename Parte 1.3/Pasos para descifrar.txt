@@ -1,0 +1,28 @@
+Una vez recibas el mensaje lo primero que tienes que hacer es copiar los tres bloques siquientes
+de caracteres codificado en base 64, y pegarlo en tres ficheros diferentes:
+-Uno para el mensaje cifrado, llamemosle en este caso: mensaje.b64
+-Uno para la key cifrada, llamemosle en este caso key.b64
+-Otro para el resumen cifrado: resumen.b64
+Una vez que tengamos esos tres ficheros en un directorio, lo siguienteque necesitamos es tu 
+par de clave privada y publica y mi clave publica en el mismo directorio donde hemos depositado
+los tres archivos anteriores. Una vez hecho esto, tan solo nos movemos a dicho directorio (cd)
+y ya estariamos listo para proceder al descifrado. Pasos a seguir:
+
+1) Decodificas los tres ficheros en base 64:
+	-> openssl enc -base64 -d -in key.b64 -out key.bin
+	-> openssl enc -base64 -d -in mensaje.b64 -out mensaje.bin
+	-> openssl enc -base64 -d -in resumen.b64 -out resumen.bin
+
+2) Descifra la key.bin con tu clave privada(Ej: NestorPrivate.key.pem):
+	-> openssl pkeyutl -decrypt -in key.bin -out key.pem -inkey NestorPrivate.key.pem
+
+3) Descifra el mensaje.bin con la clave descifrada generada en el paso anterior(key.pem):
+	-> openssl enc -aes-256-cbc -d -in mensaje.bin -out mensaje.pem -pass file:key.pem
+Como se puede apreciar, el metodos de cifrado que he utilizado ha sido: aes-256-cbc
+
+4) Solo nos resta comprobar que el mensaje descifrado esta intacto a partir del resumen:
+	-> openssl dgst -sha256 -verify JuanRamonPublic.key.pem -signature resumen.bin mensaje.pem
+Como se puede apreciar, hice el resumen con sha256. Comprobar que te sale Verify OK
+Si sale Verify Failure es que ha habido modificaciones
+
+

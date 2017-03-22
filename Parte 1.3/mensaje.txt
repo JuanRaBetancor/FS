@@ -1,0 +1,22 @@
+Aqui hay informacion importante porque es muy importante.
+
+Cryptography or cryptology is the practice and study of techniques for 
+secure communication in the presence of third parties called adversaries. More generally, 
+cryptography is about constructing and analyzing protocols that prevent third parties or the 
+public from reading private messages; various aspects in information security such as data confidentiality,data 
+integrity, authentication, and non-repudiation are central to modern cryptography. Modern cryptography exists at the 
+intersection of the disciplines of mathematics, computer science, and electrical engineering. Applications of cryptography include ATM cards, 
+computer passwords, and electronic commerce.
+
+Cryptography prior to the modern age was effectively synonymous with encryption, 
+the conversion of information from a readable state to apparent nonsense. 
+The originator of an encrypted message (Alice) shared the decoding technique needed to recover the original information 
+only with intended recipients (Bob), thereby precluding unwanted persons (Eve) from doing the same. 
+The cryptography literature often uses Alice ("A") for the sender, Bob ("B") for the intended recipient, and Eve ("eavesdropper") 
+for the adversary. Since the development of rotor cipher machines in World War I and the advent of 
+computers in World War II, the methods used to carry out cryptology have become increasingly complex and its application more widespread.
+Modern cryptography is heavily based on mathematical theory and computer science practice; 
+cryptographic algorithms are designed around computational hardness assumptions, making such 
+algorithms hard to break in practice by any adversary. It is theoretically possible to break 
+such a system, but it is infeasible to do so by any known practical means. These schemes are 
+therefore termed computationally secure; theoretical advances, e.g., improvements in integer factorizationalgorithms 
